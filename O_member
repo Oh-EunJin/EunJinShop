@@ -1,0 +1,136 @@
+create table O_member(
+	id varchar(20) not null primary key,
+	pw varchar(20) not null,
+	pw2 varchar(20) not null,
+	name varchar(10) not null,
+	address_A varchar(200) not null,
+	sex varchar(10) not null,
+	phone_A varchar(20) not null,
+	sms varchar(10) not null,
+	email_A varchar(30) not null,
+	e_mail varchar(10) not null,
+	born varchar(12) not null,
+	birth varchar(10) not null,
+	job varchar(10),
+	member_s varchar(10),
+	self varchar(300)
+);
+
+desc O_member;
+
+select * from O_member;
+
+create table O_manager(
+	mid varchar(15) not null primary key,
+	mpw varchar(15) not null
+);
+
+desc O_manager;
+
+insert into O_manager (mid, mpw)
+	values('201707017', '201707017');
+	
+select * from O_manager;
+
+create table O_product(
+	pid varchar(10) not null primary key,
+	pname varchar(20) not null,
+	poption varchar(20),
+	price varchar(10) not null,
+	pexplain varchar(300),
+	pimg varchar(100)
+);
+
+desc O_product;
+
+select * from O_product;
+
+drop table O_product;
+
+create table O_notice(
+	nid int(10) unsigned auto_increment primary key,
+	nsubject varchar(20) not null,
+	nsigndate datetime,
+	ncontext text
+);
+
+desc O_notice;
+
+select * from O_notice;
+
+drop table O_notice;
+
+create table O_question(
+	qid int(10) unsigned auto_increment primary key,
+	qwriter varchar(10) not null,
+	qsubject varchar(20) not null,
+	qsigndate datetime,
+	qcomment text
+);
+
+desc O_question;
+
+select * from O_question;
+
+drop table O_question;
+
+create table O_answer(
+	aid int(10) unsigned auto_increment primary key,
+	aqid int(10) unsigned,
+	asigndate datetime,
+	answer text
+);
+
+desc O_answer;
+
+select * from O_answer;
+
+drop table O_answer;
+
+create table O_cart(
+	cid int(10) unsigned auto_increment primary key,
+	cmid varchar(20),
+	cpid varchar(10),
+	cpimg varchar(200),
+	cpname varchar(20),
+	cprice varchar(10),
+	camount int(10) unsigned
+);
+
+desc O_cart;
+
+select * from O_cart;
+
+drop table O_cart;
+
+create table O_order(
+	oid int(10) unsigned auto_increment primary key,
+	ocid int(10) unsigned,
+	omid varchar(20),
+	opid varchar(10),
+	opimg varchar(200),
+	opname varchar(20),
+	oprice varchar(10),
+	ocamount int(10) unsigned
+);
+
+desc O_order;
+
+select * from O_order;
+
+drop table O_order;
+
+create table O_review(
+	rid int(10) unsigned auto_increment primary key,
+	rmid varchar(20),
+	rpid varchar(10),
+	rpimg varchar(200),
+	rcomment text,
+	rsigndate datetime
+);
+
+desc O_review;
+
+select * from O_review;
+
+drop table O_review;
